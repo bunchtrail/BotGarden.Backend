@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BotGarden.Domain</id>
+    <version>1.0.0</version>
+    <authors>YourName</authors>
+    <owners>YourName</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Domain models for BotGarden project</description>
+    <tags>BotGarden Domain Models</tags>
+  </metadata>
+</package>
