@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>MyNuGetPackage</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.3</Version>
 		<Authors>Nikita</Authors>
 	</PropertyGroup>
 
