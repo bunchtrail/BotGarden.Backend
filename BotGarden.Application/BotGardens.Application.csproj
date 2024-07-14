@@ -10,6 +10,128 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotGarden.Application.AssemblyInfo.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotGarden.Application.GlobalUsings.g.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotGardens.Application.AssemblyInfo.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotGardens.Application.GlobalUsings.g.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotsGarden.Application.AssemblyInfo.cs" />
+	  <Compile Include="obj\Debug\net8.0\BotsGarden.Application.GlobalUsings.g.cs" />
+	  <Compile Include="obj\Debug\net8.0\EFCoreNpgsqlNetTopologySuite.cs" />
+	  <Compile Include="obj\Release\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+	  <Compile Include="obj\Release\net8.0\BotGardens.Application.AssemblyInfo.cs" />
+	  <Compile Include="obj\Release\net8.0\BotGardens.Application.GlobalUsings.g.cs" />
+	  <Compile Include="obj\Release\net8.0\EFCoreNpgsqlNetTopologySuite.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="bin\Debug\net8.0\BotGarden.Application.deps.json" />
+	  <Content Include="bin\Debug\net8.0\BotGarden.Application.runtimeconfig.json" />
+	  <Content Include="bin\Debug\net8.0\BotGardens.Application.deps.json" />
+	  <Content Include="bin\Debug\net8.0\BotGardens.Application.runtimeconfig.json" />
+	  <Content Include="bin\Debug\net8.0\BotsGarden.Application.deps.json" />
+	  <Content Include="bin\Debug\net8.0\BotsGarden.Application.runtimeconfig.json" />
+	  <Content Include="bin\Release\net8.0\BotGardens.Application.deps.json" />
+	  <Content Include="bin\Release\net8.0\BotGardens.Application.runtimeconfig.json" />
+	  <Content Include="obj\BotGarden.Application.csproj.nuget.dgspec.json" />
+	  <Content Include="obj\BotGardens.Application.csproj.nuget.dgspec.json" />
+	  <Content Include="obj\BotsGarden.Application.csproj.nuget.dgspec.json" />
+	  <Content Include="obj\Debug\net8.0\BotGarden.Application.csproj.FileListAbsolute.txt" />
+	  <Content Include="obj\Debug\net8.0\BotGarden.Application.sourcelink.json" />
+	  <Content Include="obj\Debug\net8.0\BotGardens.Application.csproj.FileListAbsolute.txt" />
+	  <Content Include="obj\Debug\net8.0\BotGardens.Application.sourcelink.json" />
+	  <Content Include="obj\Debug\net8.0\BotsGarden.Application.csproj.FileListAbsolute.txt" />
+	  <Content Include="obj\Debug\net8.0\BotsGarden.Application.sourcelink.json" />
+	  <Content Include="obj\project.assets.json" />
+	  <Content Include="obj\Release\net8.0\BotGardens.Application.csproj.FileListAbsolute.txt" />
+	  <Content Include="obj\Release\net8.0\BotGardens.Application.sourcelink.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="bin\Debug\BotGardens.Application.1.0.0.nupkg" />
+	  <None Include="bin\Debug\MyNuGetPackage.1.0.1.nupkg" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Application.dll" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Application.pdb" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Domain.dll" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Domain.pdb" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Infrastructure.dll" />
+	  <None Include="bin\Debug\net8.0\BotGarden.Infrastructure.pdb" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Application.dll" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Application.pdb" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Domain.dll" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Domain.pdb" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Infrastructure.dll" />
+	  <None Include="bin\Debug\net8.0\BotGardens.Infrastructure.pdb" />
+	  <None Include="bin\Debug\net8.0\BotsGarden.Application.dll" />
+	  <None Include="bin\Debug\net8.0\BotsGarden.Application.pdb" />
+	  <None Include="bin\Release\BotGardens.Application.1.0.0.nupkg" />
+	  <None Include="bin\Release\net8.0\BotGardens.Application.dll" />
+	  <None Include="bin\Release\net8.0\BotGardens.Application.pdb" />
+	  <None Include="bin\Release\net8.0\BotGardens.Domain.dll" />
+	  <None Include="bin\Release\net8.0\BotGardens.Domain.pdb" />
+	  <None Include="bin\Release\net8.0\BotGardens.Infrastructure.dll" />
+	  <None Include="bin\Release\net8.0\BotGardens.Infrastructure.pdb" />
+	  <None Include="BotGardens.Application.csproj" />
+	  <None Include="BotGardens.Application.csproj.user" />
+	  <None Include="obj\BotGarden.Application.csproj.nuget.g.props" />
+	  <None Include="obj\BotGarden.Application.csproj.nuget.g.targets" />
+	  <None Include="obj\BotGardens.Application.csproj.nuget.g.props" />
+	  <None Include="obj\BotGardens.Application.csproj.nuget.g.targets" />
+	  <None Include="obj\BotsGarden.Application.csproj.nuget.g.props" />
+	  <None Include="obj\BotsGarden.Application.csproj.nuget.g.targets" />
+	  <None Include="obj\Debug\BotGarden.Application.1.0.0.nuspec" />
+	  <None Include="obj\Debug\BotGardens.Application.1.0.0.nuspec" />
+	  <None Include="obj\Debug\BotsGarden.Application.1.0.0.nuspec" />
+	  <None Include="obj\Debug\MyNuGetPackage.1.0.1.nuspec" />
+	  <None Include="obj\Debug\net8.0\BotGarde.0B8BE691.Up2Date" />
+	  <None Include="obj\Debug\net8.0\BotGarde.35DF3C07.Up2Date" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.AssemblyInfoInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.assets.cache" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.csproj.AssemblyReference.cache" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.csproj.CoreCompileInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.dll" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.GeneratedMSBuildEditorConfig.editorconfig" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.genruntimeconfig.cache" />
+	  <None Include="obj\Debug\net8.0\BotGarden.Application.pdb" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.AssemblyInfoInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.assets.cache" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.csproj.AssemblyReference.cache" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.csproj.CoreCompileInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.dll" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.GeneratedMSBuildEditorConfig.editorconfig" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.genruntimeconfig.cache" />
+	  <None Include="obj\Debug\net8.0\BotGardens.Application.pdb" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.AssemblyInfoInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.assets.cache" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.csproj.AssemblyReference.cache" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.csproj.CoreCompileInputs.cache" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.dll" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.GeneratedMSBuildEditorConfig.editorconfig" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.genruntimeconfig.cache" />
+	  <None Include="obj\Debug\net8.0\BotsGarden.Application.pdb" />
+	  <None Include="obj\Debug\net8.0\refint\BotGarden.Application.dll" />
+	  <None Include="obj\Debug\net8.0\refint\BotGardens.Application.dll" />
+	  <None Include="obj\Debug\net8.0\refint\BotsGarden.Application.dll" />
+	  <None Include="obj\Debug\net8.0\ref\BotGarden.Application.dll" />
+	  <None Include="obj\Debug\net8.0\ref\BotGardens.Application.dll" />
+	  <None Include="obj\Debug\net8.0\ref\BotsGarden.Application.dll" />
+	  <None Include="obj\project.nuget.cache" />
+	  <None Include="obj\Release\BotGardens.Application.1.0.0.nuspec" />
+	  <None Include="obj\Release\net8.0\BotGarde.0B8BE691.Up2Date" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.AssemblyInfoInputs.cache" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.assets.cache" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.csproj.AssemblyReference.cache" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.csproj.CoreCompileInputs.cache" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.dll" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.GeneratedMSBuildEditorConfig.editorconfig" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.genruntimeconfig.cache" />
+	  <None Include="obj\Release\net8.0\BotGardens.Application.pdb" />
+	  <None Include="obj\Release\net8.0\refint\BotGardens.Application.dll" />
+	  <None Include="obj\Release\net8.0\ref\BotGardens.Application.dll" />
+	  <None Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
 			<PrivateAssets>all</PrivateAssets>
