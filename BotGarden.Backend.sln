@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGarden.Application", "BotGarden.Application\BotGarden.Application.csproj", "{0FAC058E-6DEC-42B6-87C0-C7AD4C9790AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGardens.Application", "BotGarden.Application\BotGardens.Application.csproj", "{0FAC058E-6DEC-42B6-87C0-C7AD4C9790AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGarden.Domain", "BotGarden.Domain\BotGarden.Domain.csproj", "{B653A407-FA95-4FF9-90D5-31DCEB4E3484}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGardens.Domain", "BotGarden.Domain\BotGardens.Domain.csproj", "{B653A407-FA95-4FF9-90D5-31DCEB4E3484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGarden.Infrastructure", "BotGarden.Infrastructure\BotGarden.Infrastructure.csproj", "{B6B41DFB-96E4-460C-B223-406DEB7909F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotGardens.Infrastructure", "BotGarden.Infrastructure\BotGardens.Infrastructure.csproj", "{B6B41DFB-96E4-460C-B223-406DEB7909F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

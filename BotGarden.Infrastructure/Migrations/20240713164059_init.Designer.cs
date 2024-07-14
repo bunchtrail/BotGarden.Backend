@@ -3,6 +3,7 @@ using System;
 using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(BotanicGardenContext))]
-    partial class BotanicGardenContextModelSnapshot : ModelSnapshot
+    [Migration("20240713164059_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,9 +224,6 @@ namespace BotGardens.Infrastructure.Migrations
 
                     b.Property<string>("YearOfObs")
                         .HasColumnType("text");
-
-                    b.Property<int>("qqqq")
-                        .HasColumnType("integer");
 
                     b.HasKey("PlantId");
 

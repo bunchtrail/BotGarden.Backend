@@ -1,6 +1,7 @@
-﻿using BotGarden.Core.Data.Repositories;
-using BotGarden.Core.Models;
+﻿using BotGarden.Infrastructure.Data.Repositories;
+using BotGarden.Domain.Models;
 
+namespace BotGarden.Application.Services { 
 public class SectorsService
 {
     private readonly IRepository<Sectors> _sectorsRepository;
@@ -34,4 +35,5 @@ public class SectorsService
     {
         await _sectorsRepository.DeleteAsync(id);
     }
+}
 }

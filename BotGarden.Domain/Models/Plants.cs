@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BotGarden.Core.Models
+namespace BotGarden.Domain.Models
 {
     public class Plants
     {
         [Key]
         public int PlantId { get; set; }
+
+        public int qqqq { get; set; }
 
         public int? FamilyId { get; set; } //
 

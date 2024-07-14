@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace BotGarden.Infrastructure.Migrations
+namespace BotGardens.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class v1 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -79,6 +79,21 @@ namespace BotGarden.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sectors", x => x.SectorId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    userId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    userEmail = table.Column<string>(type: "text", nullable: false),
+                    userHashedPass = table.Column<string>(type: "text", nullable: false),
+                    userRole = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.userId);
                 });
 
             migrationBuilder.CreateTable(
@@ -183,6 +198,9 @@ namespace BotGarden.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Plants");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "BotGarden");

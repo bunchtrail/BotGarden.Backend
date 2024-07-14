@@ -1,4 +1,4 @@
-﻿namespace BotGarden.Core.Data.Repositories
+﻿namespace BotGarden.Infrastructure.Data.Repositories
 {
 	public interface IRepository<T> where T : class
 	{

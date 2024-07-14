@@ -1,9 +1,9 @@
-﻿using BotGarden.Core.Models;
-using BotGarden.Core.Data.Repositories;
+﻿using BotGarden.Domain.Models;
+using BotGarden.Infrastructure.Data.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BotGarden.Applications.Services
+namespace BotGarden.Application.Services.MainFormAdd
 {
     public class BotGardenService
     {

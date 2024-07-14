@@ -1,11 +1,11 @@
-﻿using BotGarden.Core.Data.Contexts;
-using BotGarden.Core.Models;
+﻿using BotGarden.Infrastructure.Contexts;
+using BotGarden.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
-namespace BotGarden.Core.Data.Repositories
+namespace BotGarden.Infrastructure.Data.Repositories
 {
 	public class PlantFamiliesRepository : IRepository<PlantFamilies>
 	{

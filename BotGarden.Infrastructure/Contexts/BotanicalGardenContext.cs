@@ -1,8 +1,9 @@
-﻿using BotGarden.Core.Models;
+﻿using BotGarden.Domain.Models;
+using BotGardens.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
 
-namespace BotGarden.Core.Data.Contexts
+namespace BotGarden.Infrastructure.Contexts
 {
     public class BotanicGardenContext : DbContext
     {
@@ -14,6 +15,7 @@ namespace BotGarden.Core.Data.Contexts
         public DbSet<Plants>? Plants { get; set; }
         public DbSet<Sectors>? Sectors { get; set; }
         public DbSet<Genus>? Genus { get; set; }
+        public DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

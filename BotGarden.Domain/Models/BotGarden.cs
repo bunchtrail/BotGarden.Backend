@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BotGarden.Core.Models
+namespace BotGarden.Domain.Models
 {
-    public class BotGardenMode
+    public class BotGarden
     {
         [Key]
         public int LocationId { get; set; }

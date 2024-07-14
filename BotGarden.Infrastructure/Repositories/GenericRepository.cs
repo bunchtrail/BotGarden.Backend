@@ -1,10 +1,10 @@
-﻿using BotGarden.Core.Data.Contexts;
+﻿using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BotGarden.Core.Data.Repositories
+namespace BotGarden.Infrastructure.Data.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {

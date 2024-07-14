@@ -1,5 +1,5 @@
-﻿using BotGarden.Core.Data.Repositories;
-using BotGarden.Core.Models;
+﻿using BotGarden.Infrastructure.Data.Repositories;
+using BotGarden.Domain.Models;
 
 public class CollectionsService
 {

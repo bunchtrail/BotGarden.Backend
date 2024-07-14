@@ -1,4 +1,4 @@
-﻿using BotGarden.Core.Data.Contexts;
+﻿using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;

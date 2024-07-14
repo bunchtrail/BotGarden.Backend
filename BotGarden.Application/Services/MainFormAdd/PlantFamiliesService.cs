@@ -1,6 +1,6 @@
-﻿using BotGarden.Core.Data.Repositories;
-using BotGarden.Core.Models;
-namespace BotGarden.Applications.Services
+﻿using BotGarden.Infrastructure.Data.Repositories;
+using BotGarden.Domain.Models;
+namespace BotGarden.Application.Services.MainFormAdd
 {
 
     public class PlantFamilyService

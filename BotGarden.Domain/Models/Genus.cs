@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BotGarden.Core.Models
+namespace BotGarden.Domain.Models
 {
 	public class Genus
 	{

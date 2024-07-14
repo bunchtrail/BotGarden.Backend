@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BotGarden.Core.Models;
+using BotGarden.Domain.Models;
 
 public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
 {

@@ -1,11 +1,11 @@
-﻿using BotGarden.Core.Models;
+﻿using BotGarden.Domain.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using BotGarden.Core.Data.Repositories;
+using BotGarden.Infrastructure.Data.Repositories;
 
-namespace NewBotanicG.Services
+namespace BotGarden.Applications.Services
 {
     public class PlantService
     {
