@@ -3,6 +3,7 @@ using System;
 using BotGardens.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240723181530_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,36 +123,45 @@ namespace BotGardens.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
 
                     b.Property<string>("ConservationStatus")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DeterminedBy")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DuplicatesInOtherHerbaria")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("EcologyAndBiology")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("EconomicUse")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("FamilyID")
                         .HasColumnType("integer");
 
                     b.Property<string>("FilledBy")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Form")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Genus")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("HasHerbarium")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Illustration")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("InventoryNumber")
@@ -160,33 +172,42 @@ namespace BotGardens.Infrastructure.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("NaturalHabitat")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Notes")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Originator")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PlantingYear")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("SampleOrigin")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("SectorID")
                         .HasColumnType("integer");
 
                     b.Property<string>("Species")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Synonyms")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Variety")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("YearCountry")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("ID");

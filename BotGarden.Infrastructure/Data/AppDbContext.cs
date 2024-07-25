@@ -16,6 +16,8 @@ namespace BotGardens.Infrastructure.Data
         public DbSet<Location> Locations { get; set; }
         public DbSet<Sector> Sectors { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Plant>()
