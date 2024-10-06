@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(BotanicGardenContext))]
-    [Migration("20240713164059_init")]
-    partial class init
+    [Migration("20241006170119_sd")]
+    partial class sd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -224,6 +224,9 @@ namespace BotGardens.Infrastructure.Migrations
 
                     b.Property<string>("YearOfObs")
                         .HasColumnType("text");
+
+                    b.Property<int>("qqqq")
+                        .HasColumnType("integer");
 
                     b.HasKey("PlantId");
 

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class sd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -102,6 +102,7 @@ namespace BotGardens.Infrastructure.Migrations
                 {
                     PlantId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    qqqq = table.Column<int>(type: "integer", nullable: false),
                     FamilyId = table.Column<int>(type: "integer", nullable: true),
                     BiometricId = table.Column<int>(type: "integer", nullable: true),
                     SectorId = table.Column<int>(type: "integer", nullable: true),
