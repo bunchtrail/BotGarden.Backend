@@ -28,22 +28,5 @@ namespace BotGarden.Infrastructure.Contexts
                 .Property(b => b.Geometry)
                 .HasColumnType("geometry");
         }
-
-        public void EnsureDefaultUser()
-        {
-            var defaultUser = new Users
-            {
-                userId = 1,
-                userEmail = "qwe@qwe",
-                userHashedPass = "$2a$11$kMdICimyYki1TTRHsNLv2.C0iKgFkb9N.TB2P6I4nOfRSxyERTnLK",
-                userRole = "admin"
-            };
-
-            if (!Users.Any(u => u.userId == defaultUser.userId))
-            {
-                Users.Add(defaultUser);
-                SaveChanges();
-            }
-        }
     }
 }

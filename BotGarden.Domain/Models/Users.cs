@@ -18,6 +18,7 @@ namespace BotGardens.Domain.Models
         [Required]
         public string userRole { get; set; }
 
+        [Required]
         public string RefreshTokenHash { get; set; }
 
         public DateTime RefreshTokenExpiryTime { get; set; }
