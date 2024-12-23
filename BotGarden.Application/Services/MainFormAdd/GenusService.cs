@@ -18,5 +18,16 @@ namespace BotGarden.Application.Services.MainFormAdd
         {
             return await _genusRepository.GetAllAsync();
         }
+
+        public async Task<Genus> CreateGenusAsync(string genusName)
+        {
+            var newGenus = new Genus
+            {
+                GenusName = genusName
+            };
+
+            await _genusRepository.AddAsync(newGenus);
+            return newGenus;
+        }
     }
 }

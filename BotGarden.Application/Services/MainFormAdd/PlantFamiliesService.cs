@@ -18,6 +18,16 @@ namespace BotGarden.Application.Services.MainFormAdd
             return families ?? [];
         }
 
+        public async Task<PlantFamilies> CreatePlantFamilyAsync(string familyName)
+        {
+            var newFamily = new PlantFamilies
+            {
+                FamilyName = familyName
+            };
+
+            await _plantFamilyRepository.AddAsync(newFamily);
+            return newFamily;
+        }
     }
 }
 
