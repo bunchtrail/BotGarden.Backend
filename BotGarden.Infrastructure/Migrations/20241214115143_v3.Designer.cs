@@ -3,6 +3,7 @@ using System;
 using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(BotanicGardenContext))]
-    partial class BotanicGardenContextModelSnapshot : ModelSnapshot
+    [Migration("20241214115143_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,7 +86,7 @@ namespace BotGardens.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("MapImageId"));
 
-                    b.Property<string>("MapImagePath")
+                    b.Property<string>("MapImapePath")
                         .HasColumnType("text");
 
                     b.HasKey("MapImageId");

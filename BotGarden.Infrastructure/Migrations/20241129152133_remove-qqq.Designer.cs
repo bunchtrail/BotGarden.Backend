@@ -3,6 +3,7 @@ using System;
 using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(BotanicGardenContext))]
-    partial class BotanicGardenContextModelSnapshot : ModelSnapshot
+    [Migration("20241129152133_remove-qqq")]
+    partial class removeqqq
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,22 +76,6 @@ namespace BotGardens.Infrastructure.Migrations
                     b.HasKey("GenusId");
 
                     b.ToTable("Genus");
-                });
-
-            modelBuilder.Entity("BotGarden.Domain.Models.Map", b =>
-                {
-                    b.Property<int>("MapImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("MapImageId"));
-
-                    b.Property<string>("MapImagePath")
-                        .HasColumnType("text");
-
-                    b.HasKey("MapImageId");
-
-                    b.ToTable("Map");
                 });
 
             modelBuilder.Entity("BotGarden.Domain.Models.PlantFamilies", b =>
@@ -278,12 +265,12 @@ namespace BotGardens.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("userId"));
 
-                    b.Property<DateTime>("RefreshTokenExpiryTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("RefreshTokenHash")
+                    b.Property<string>("RefreshToken")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("userEmail")
                         .IsRequired()

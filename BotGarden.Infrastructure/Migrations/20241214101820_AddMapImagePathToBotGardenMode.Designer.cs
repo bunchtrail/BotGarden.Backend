@@ -3,6 +3,7 @@ using System;
 using BotGarden.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BotGardens.Infrastructure.Migrations
 {
     [DbContext(typeof(BotanicGardenContext))]
-    partial class BotanicGardenContextModelSnapshot : ModelSnapshot
+    [Migration("20241214101820_AddMapImagePathToBotGardenMode")]
+    partial class AddMapImagePathToBotGardenMode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,6 +39,9 @@ namespace BotGardens.Infrastructure.Migrations
                         .HasColumnType("geometry");
 
                     b.Property<string>("LocationPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MapImagePath")
                         .HasColumnType("text");
 
                     b.HasKey("LocationId");
@@ -73,22 +79,6 @@ namespace BotGardens.Infrastructure.Migrations
                     b.HasKey("GenusId");
 
                     b.ToTable("Genus");
-                });
-
-            modelBuilder.Entity("BotGarden.Domain.Models.Map", b =>
-                {
-                    b.Property<int>("MapImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("MapImageId"));
-
-                    b.Property<string>("MapImagePath")
-                        .HasColumnType("text");
-
-                    b.HasKey("MapImageId");
-
-                    b.ToTable("Map");
                 });
 
             modelBuilder.Entity("BotGarden.Domain.Models.PlantFamilies", b =>

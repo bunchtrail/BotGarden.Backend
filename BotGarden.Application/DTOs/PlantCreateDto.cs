@@ -1,8 +1,13 @@
-﻿namespace BotGarden.Application.DTOs
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BotGarden.Application.DTOs
 {
-    public class PlantUpdateDto
+    public class PlantCreateDto
     {
-        public int PlantId { get; set; }
         public int? FamilyId { get; set; }
         public int? BiometricId { get; set; }
         public int? SectorId { get; set; }
@@ -26,13 +31,13 @@
         public string? NaturalHabitat { get; set; }
         public string? EcologyBiology { get; set; }
         public string? EconomicUse { get; set; }
-        public double? Latitude { get; set; }
-        public double? Longitude { get; set; }
+        public string? Latitude { get; set; }
+        public string? Longitude { get; set; }
         public string? Originator { get; set; }
         public string? Date { get; set; }
         public string? Country { get; set; }
         public string? ImagePath { get; set; }
-        public bool? HerbariumPresence { get; set; }
+        public bool HerbariumPresence { get; set; }
         public string? Note { get; set; }
     }
 }

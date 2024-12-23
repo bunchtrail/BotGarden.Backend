@@ -8,8 +8,6 @@ namespace BotGarden.Domain.Models
         [Key]
         public int PlantId { get; set; }
 
-        public int qqqq { get; set; }
-
         public int? FamilyId { get; set; } //
 
         public int? BiometricId { get; set; }

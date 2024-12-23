@@ -16,6 +16,8 @@ namespace BotGarden.Infrastructure.Contexts
         public DbSet<Sectors>? Sectors { get; set; }
         public DbSet<Genus>? Genus { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Map> Map { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +27,23 @@ namespace BotGarden.Infrastructure.Contexts
             modelBuilder.Entity<BotGardenMode>()
                 .Property(b => b.Geometry)
                 .HasColumnType("geometry");
+        }
+
+        public void EnsureDefaultUser()
+        {
+            var defaultUser = new Users
+            {
+                userId = 1,
+                userEmail = "qwe@qwe",
+                userHashedPass = "$2a$11$kMdICimyYki1TTRHsNLv2.C0iKgFkb9N.TB2P6I4nOfRSxyERTnLK",
+                userRole = "admin"
+            };
+
+            if (!Users.Any(u => u.userId == defaultUser.userId))
+            {
+                Users.Add(defaultUser);
+                SaveChanges();
+            }
         }
     }
 }
