@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BotGarden.Domain\BotGardens.Domain.csproj" />
+    <ProjectReference Include="..\BotGarden.Domain\BotGarden.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

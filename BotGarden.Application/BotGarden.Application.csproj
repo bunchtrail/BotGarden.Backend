@@ -23,8 +23,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BotGarden.Domain\BotGardens.Domain.csproj" />
-		<ProjectReference Include="..\BotGarden.Infrastructure\BotGardens.Infrastructure.csproj" />
+		<ProjectReference Include="..\BotGarden.Domain\BotGarden.Domain.csproj" />
+		<ProjectReference Include="..\BotGarden.Infrastructure\BotGarden.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
