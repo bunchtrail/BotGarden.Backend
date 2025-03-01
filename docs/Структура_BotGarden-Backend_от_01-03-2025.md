@@ -33,6 +33,7 @@
     - **Configurations**
       - `PlantsConfig.cs` (4.0 KB)
     - **Models**
+      - `BotanicalGardenModels.cs` (8.6 KB)
       - `BotGarden.cs` (434.0 B)
       - `Collections.cs` (319.0 B)
       - `ErrorViewModel.cs` (210.0 B)
@@ -61,14 +62,16 @@
         - **obj**
     - `BotGarden.Infrastructure.csproj` (1.5 KB)
     - **Contexts**
-      - `BotanicalGardenContext.cs` (1.3 KB)
+      - `BotanicalGardenContext.cs` (1.8 KB)
       - `BotanicalGardenContextFactory.cs` (1.4 KB)
     - `Dockerfile` (1.2 KB)
     - **docs**
     - **Migrations**
       - `20250301181622_v1.cs` (12.4 KB)
       - `20250301181622_v1.Designer.cs` (13.8 KB)
-      - `BotanicGardenContextModelSnapshot.cs` (13.7 KB)
+      - `20250301183845_AddBotanicalGardenStructure.cs` (9.5 KB)
+      - `20250301183845_AddBotanicalGardenStructure.Designer.cs` (24.4 KB)
+      - `BotanicGardenContextModelSnapshot.cs` (24.3 KB)
     - **nupkgs**
     - **obj**
     - **Properties**
@@ -84,7 +87,7 @@
   - `docker-compose.yml` (604.0 B)
   - `Dockerfile` (1.0 KB)
   - **docs**
-    - `Структура_BotGarden-Backend_от_01-03-2025.md` (2.9 KB)
+    - `Структура_BotGarden-Backend_от_01-03-2025.md` (3.1 KB)
     - `Структура_BotGarden-Backend_от_23-02-2025.md` (2.8 KB)
   - **nupkgs**
   - **nupkgsс**

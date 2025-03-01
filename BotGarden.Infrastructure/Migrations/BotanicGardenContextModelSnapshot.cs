@@ -24,6 +24,44 @@ namespace BotGarden.Infrastructure.Migrations
             NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "postgis");
             NpgsqlModelBuilderExtensions.UseSerialColumns(modelBuilder);
 
+            modelBuilder.Entity("BotGarden.Domain.Models.Biometry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<float?>("FlowerDiameter")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("Height")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("MeasurementDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("MeasurementType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<float?>("MeasurementValue")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("SpecimenId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpecimenId");
+
+                    b.ToTable("Biometries");
+                });
+
             modelBuilder.Entity("BotGarden.Domain.Models.BotGardenModel", b =>
                 {
                     b.Property<int>("LocationId")
@@ -59,6 +97,42 @@ namespace BotGarden.Infrastructure.Migrations
                     b.ToTable("Collections");
                 });
 
+            modelBuilder.Entity("BotGarden.Domain.Models.Exposition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Expositions");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Family", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FamilyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Families");
+                });
+
             modelBuilder.Entity("BotGarden.Domain.Models.Genus", b =>
                 {
                     b.Property<int>("GenusId")
@@ -90,6 +164,43 @@ namespace BotGarden.Infrastructure.Migrations
                     b.HasKey("MapImageId");
 
                     b.ToTable("Map");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Phenology", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("FloweringEndDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("FloweringStartDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("FruitingDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("LeafAppearanceDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("SpecimenId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpecimenId");
+
+                    b.ToTable("Phenologies");
                 });
 
             modelBuilder.Entity("BotGarden.Domain.Models.PlantFamilies", b =>
@@ -278,6 +389,131 @@ namespace BotGarden.Infrastructure.Migrations
                     b.ToTable("Sectors");
                 });
 
+            modelBuilder.Entity("BotGarden.Domain.Models.Specimen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Areal")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("DeterminedBy")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("EcologyBiology")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("EconomicUse")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<int?>("ExpositionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("FamilyId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("FilledBy")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Forma")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<bool?>("HasDuplicates")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool?>("HasHerbarium")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Illustration")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("InventoryNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Origin")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("Originator")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("Rod")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("SecurityStatus")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Sort")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Synonyms")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("Vid")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("YearCountry")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<int?>("YearOfPlanting")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExpositionId");
+
+                    b.HasIndex("FamilyId");
+
+                    b.HasIndex("InventoryNumber")
+                        .IsUnique();
+
+                    b.ToTable("Specimens");
+                });
+
             modelBuilder.Entity("BotGardens.Domain.Models.Users", b =>
                 {
                     b.Property<int>("UserId")
@@ -308,6 +544,28 @@ namespace BotGarden.Infrastructure.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Biometry", b =>
+                {
+                    b.HasOne("BotGarden.Domain.Models.Specimen", "Specimen")
+                        .WithMany("Biometries")
+                        .HasForeignKey("SpecimenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specimen");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Phenology", b =>
+                {
+                    b.HasOne("BotGarden.Domain.Models.Specimen", "Specimen")
+                        .WithMany("Phenologies")
+                        .HasForeignKey("SpecimenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specimen");
                 });
 
             modelBuilder.Entity("BotGarden.Domain.Models.Plants", b =>
@@ -345,6 +603,21 @@ namespace BotGarden.Infrastructure.Migrations
                     b.Navigation("Sector");
                 });
 
+            modelBuilder.Entity("BotGarden.Domain.Models.Specimen", b =>
+                {
+                    b.HasOne("BotGarden.Domain.Models.Exposition", "Exposition")
+                        .WithMany("Specimens")
+                        .HasForeignKey("ExpositionId");
+
+                    b.HasOne("BotGarden.Domain.Models.Family", "Family")
+                        .WithMany("Specimens")
+                        .HasForeignKey("FamilyId");
+
+                    b.Navigation("Exposition");
+
+                    b.Navigation("Family");
+                });
+
             modelBuilder.Entity("BotGarden.Domain.Models.BotGardenModel", b =>
                 {
                     b.Navigation("Plants");
@@ -353,6 +626,16 @@ namespace BotGarden.Infrastructure.Migrations
             modelBuilder.Entity("BotGarden.Domain.Models.Collections", b =>
                 {
                     b.Navigation("Plants");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Exposition", b =>
+                {
+                    b.Navigation("Specimens");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Family", b =>
+                {
+                    b.Navigation("Specimens");
                 });
 
             modelBuilder.Entity("BotGarden.Domain.Models.Genus", b =>
@@ -368,6 +651,13 @@ namespace BotGarden.Infrastructure.Migrations
             modelBuilder.Entity("BotGarden.Domain.Models.Sectors", b =>
                 {
                     b.Navigation("Plants");
+                });
+
+            modelBuilder.Entity("BotGarden.Domain.Models.Specimen", b =>
+                {
+                    b.Navigation("Biometries");
+
+                    b.Navigation("Phenologies");
                 });
 #pragma warning restore 612, 618
         }

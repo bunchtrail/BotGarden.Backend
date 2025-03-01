@@ -18,6 +18,11 @@ namespace BotGarden.Infrastructure.Contexts
         public DbSet<Users> Users { get; set; } = null!;
         public DbSet<Map> Map { get; set; } = null!;
 
+        public DbSet<Specimen> Specimens { get; set; } = null!;
+        public DbSet<Family> Families { get; set; } = null!;
+        public DbSet<Exposition> Expositions { get; set; } = null!;
+        public DbSet<Phenology> Phenologies { get; set; } = null!;
+        public DbSet<Biometry> Biometries { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +35,11 @@ namespace BotGarden.Infrastructure.Contexts
             modelBuilder.Entity<BotGardenModel>()
                 .Property(b => b.Geometry)
                 .HasColumnType("geometry");
+
+            // Настройка уникальности инвентарного номера для Specimen
+            modelBuilder.Entity<Specimen>()
+                .HasIndex(s => s.InventoryNumber)
+                .IsUnique();
         }
     }
 }
