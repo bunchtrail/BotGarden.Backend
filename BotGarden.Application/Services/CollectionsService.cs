@@ -1,37 +1,42 @@
 ﻿using BotGarden.Infrastructure.Data.Repositories;
 using BotGarden.Domain.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public class CollectionsService
+namespace BotGarden.Application.Services
 {
-    private readonly IRepository<Collections> _collectionsRepository;
-
-    public CollectionsService(IRepository<Collections> collectionsRepository)
+    public class CollectionsService
     {
-        _collectionsRepository = collectionsRepository;
-    }
+        private readonly IRepository<Collections> _collectionsRepository;
 
-    public async Task<IEnumerable<Collections>> GetAllCollectionsAsync()
-    {
-        return await _collectionsRepository.GetAllAsync();
-    }
+        public CollectionsService(IRepository<Collections> collectionsRepository)
+        {
+            _collectionsRepository = collectionsRepository;
+        }
 
-    public async Task<Collections> GetCollectionByIdAsync(int id)
-    {
-        return await _collectionsRepository.GetByIdAsync(id);
-    }
+        public async Task<IEnumerable<Collections>> GetAllCollectionsAsync()
+        {
+            return await _collectionsRepository.GetAllAsync();
+        }
 
-    public async Task AddCollectionAsync(Collections collection)
-    {
-        await _collectionsRepository.AddAsync(collection);
-    }
+        public async Task<Collections?> GetCollectionByIdAsync(int id)
+        {
+            return await _collectionsRepository.GetByIdAsync(id);
+        }
 
-    public async Task UpdateCollectionAsync(Collections collection)
-    {
-        await _collectionsRepository.UpdateAsync(collection);
-    }
+        public async Task AddCollectionAsync(Collections collection)
+        {
+            await _collectionsRepository.AddAsync(collection);
+        }
 
-    public async Task DeleteCollectionAsync(int id)
-    {
-        await _collectionsRepository.DeleteAsync(id);
+        public async Task UpdateCollectionAsync(Collections collection)
+        {
+            await _collectionsRepository.UpdateAsync(collection);
+        }
+
+        public async Task DeleteCollectionAsync(int id)
+        {
+            await _collectionsRepository.DeleteAsync(id);
+        }
     }
 }

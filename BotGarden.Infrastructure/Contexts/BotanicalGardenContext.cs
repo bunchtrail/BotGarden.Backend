@@ -9,22 +9,25 @@ namespace BotGarden.Infrastructure.Contexts
     {
         public BotanicGardenContext(DbContextOptions<BotanicGardenContext> options) : base(options) { }
 
-        public DbSet<BotGardenMode>? BotGarden { get; set; }
+        public DbSet<BotGardenModel>? BotGarden { get; set; }
         public DbSet<Collections>? Collections { get; set; }
         public DbSet<PlantFamilies>? PlantFamilies { get; set; }
         public DbSet<Plants>? Plants { get; set; }
         public DbSet<Sectors>? Sectors { get; set; }
         public DbSet<Genus>? Genus { get; set; }
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Map> Map { get; set; }
+        public DbSet<Users> Users { get; set; } = null!;
+        public DbSet<Map> Map { get; set; } = null!;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.UseSerialColumns();
+            
+            // Применяем все существующие конфигурации
             modelBuilder.ApplyConfiguration(new PlantsConfiguration());
-
-            modelBuilder.Entity<BotGardenMode>()
+            
+            // Настройка для BotGardenModel
+            modelBuilder.Entity<BotGardenModel>()
                 .Property(b => b.Geometry)
                 .HasColumnType("geometry");
         }

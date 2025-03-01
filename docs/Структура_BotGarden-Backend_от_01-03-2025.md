@@ -1,0 +1,94 @@
+- **BotGarden.Backend**
+  - **.vs**
+  - **BotGarden.Application**
+    - **bin**
+    - `BotGarden.Application.csproj` (1.2 KB)
+    - **DTOs**
+      - `CreateBotGardenModelDto.cs` (217.0 B)
+      - `CreateFamilyDto.cs` (216.0 B)
+      - `CreateGenusDto.cs` (214.0 B)
+      - `PlantCreateDto.cs` (2.4 KB)
+      - `PlantIdsDto.cs` (149.0 B)
+      - `PlantUpdateDto.cs` (1.6 KB)
+      - `UpdateAreaRequest.cs` (197.0 B)
+    - **nupkgs**
+    - **obj**
+    - `Package.nuspec` (3.0 B)
+    - **Properties**
+      - **PublishProfiles**
+    - **Services**
+      - `CollectionsService.cs` (1.3 KB)
+      - **MainFormAdd**
+        - `BotGardenService.cs` (668.0 B)
+        - `GenusService.cs` (897.0 B)
+        - `PlantFamiliesService.cs` (987.0 B)
+      - `PlantService.cs` (805.0 B)
+      - `SectorsService.cs` (1.0 KB)
+  - `BotGarden.Backend.sln` (2.1 KB)
+  - `BotGarden.Backend.vcxproj` (6.3 KB)
+  - `BotGarden.Backend.vcxproj.filters` (883.0 B)
+  - **BotGarden.Domain**
+    - **bin**
+    - `BotGarden.Domain.csproj` (1.0 KB)
+    - **Configurations**
+      - `PlantsConfig.cs` (4.0 KB)
+    - **Models**
+      - `BotGarden.cs` (434.0 B)
+      - `Collections.cs` (319.0 B)
+      - `ErrorViewModel.cs` (210.0 B)
+      - **Forms**
+        - **Dendrology**
+          - `DendrologyAllViewModel.cs` (383.0 B)
+          - `DendrologyViewModel.cs` (433.0 B)
+        - `PlantsViewModel.cs` (237.0 B)
+      - `Genus.cs` (301.0 B)
+      - `Map.cs` (399.0 B)
+      - `PlantFamilies.cs` (329.0 B)
+      - `Plants.cs` (2.1 KB)
+      - `Sectors.cs` (328.0 B)
+      - `Users.cs` (613.0 B)
+    - **nupkgs**
+    - **obj**
+    - `Package.nuspec` (378.0 B)
+    - **Properties**
+      - **PublishProfiles**
+  - **BotGarden.Infrastructure**
+    - `appsettings.Development.json` (127.0 B)
+    - `appsettings.json` (287.0 B)
+    - **bin**
+    - **BotGarden.Backend**
+      - **BotGarden.Infrastructure**
+        - **obj**
+    - `BotGarden.Infrastructure.csproj` (1.5 KB)
+    - **Contexts**
+      - `BotanicalGardenContext.cs` (1.3 KB)
+      - `BotanicalGardenContextFactory.cs` (1.4 KB)
+    - `Dockerfile` (1.2 KB)
+    - **docs**
+    - **Migrations**
+      - `20250301181622_v1.cs` (12.4 KB)
+      - `20250301181622_v1.Designer.cs` (13.8 KB)
+      - `BotanicGardenContextModelSnapshot.cs` (13.7 KB)
+    - **nupkgs**
+    - **obj**
+    - **Properties**
+      - **PublishProfiles**
+    - **Repositories**
+      - `BotGardenRepository.cs` (2.1 KB)
+      - `GenericRepository.cs` (1.7 KB)
+      - `GenusRepository.cs` (1.4 KB)
+      - `IRepository.cs` (286.0 B)
+      - `PlantFamiliesRepository.cs` (2.0 KB)
+      - `PlantsRepository.cs` (3.3 KB)
+      - `UserRepository.cs` (565.0 B)
+  - `docker-compose.yml` (604.0 B)
+  - `Dockerfile` (1.0 KB)
+  - **docs**
+    - `Структура_BotGarden-Backend_от_01-03-2025.md` (2.9 KB)
+    - `Структура_BotGarden-Backend_от_23-02-2025.md` (2.8 KB)
+  - **nupkgs**
+  - **nupkgsс**
+  - **obj**
+  - **Services**
+    - `GenusService.cs` (726.0 B)
+    - `PlantFamilyService.cs` (782.0 B)

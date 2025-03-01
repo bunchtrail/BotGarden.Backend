@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BotGarden.Domain.Models
 {
@@ -9,7 +8,7 @@ namespace BotGarden.Domain.Models
         public int SectorId { get; set; }
 
         [Required]
-        public string SectorName { get; set;}
+        public required string SectorName { get; set;}
 
         public ICollection<Plants>? Plants { get; set; }
     }

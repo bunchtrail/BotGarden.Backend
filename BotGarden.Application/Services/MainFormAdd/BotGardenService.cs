@@ -7,14 +7,14 @@ namespace BotGarden.Application.Services.MainFormAdd
 {
     public class BotGardenService
     {
-        private readonly IRepository<BotGardenMode> _botGardenRepository;
+        private readonly IRepository<BotGardenModel> _botGardenRepository;
 
-        public BotGardenService(IRepository<BotGardenMode> botGardenRepository)
+        public BotGardenService(IRepository<BotGardenModel> botGardenRepository)
         {
             _botGardenRepository = botGardenRepository;
         }
 
-        public async Task<IEnumerable<BotGardenMode>> GetAllBotGardensAsync()
+        public async Task<IEnumerable<BotGardenModel>> GetAllBotGardensAsync()
         {
             return await _botGardenRepository.GetAllAsync();
         }

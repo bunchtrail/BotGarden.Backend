@@ -9,9 +9,9 @@ namespace BotGardens.Infrastructure.Repositories
     {
         public UsersRepository(BotanicGardenContext context) : base(context) { }
 
-        public async Task<Users> GetUserByEmailAsync(string email)
+        public async Task<Users?> GetUserByEmailAsync(string email)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u.userEmail == email);
+            return await _context.Users.SingleOrDefaultAsync(u => u.UserEmail == email);
         }
     }
 }

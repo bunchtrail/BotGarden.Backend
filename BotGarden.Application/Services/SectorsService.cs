@@ -1,5 +1,7 @@
 ﻿using BotGarden.Infrastructure.Data.Repositories;
 using BotGarden.Domain.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BotGarden.Application.Services { 
 public class SectorsService
@@ -16,7 +18,7 @@ public class SectorsService
         return await _sectorsRepository.GetAllAsync();
     }
 
-    public async Task<Sectors> GetSectorByIdAsync(int id)
+    public async Task<Sectors?> GetSectorByIdAsync(int id)
     {
         return await _sectorsRepository.GetByIdAsync(id);
     }

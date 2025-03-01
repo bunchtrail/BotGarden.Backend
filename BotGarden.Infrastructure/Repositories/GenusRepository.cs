@@ -17,28 +17,43 @@ public class GenusRepository : IRepository<Genus>
 
 	public async Task<IEnumerable<Genus>> GetAllAsync()
 	{
-		return await _context.Genus.ToListAsync();
+		if (_context.Genus == null)
+			return new List<Genus>();
+			
+		return await _context.Genus.ToListAsync() ?? new List<Genus>();
 	}
 
-	public async Task<Genus> GetByIdAsync(int id)
+	public async Task<Genus?> GetByIdAsync(int id)
 	{
+		if (_context.Genus == null)
+			return null;
+			
 		return await _context.Genus.FirstOrDefaultAsync(g => g.GenusId == id);
 	}
 
 	public async Task AddAsync(Genus genus)
 	{
-		_context.Genus.Add(genus);
-		await _context.SaveChangesAsync();
+		if (genus != null && _context.Genus != null)
+		{
+			_context.Genus.Add(genus);
+			await _context.SaveChangesAsync();
+		}
 	}
 
 	public async Task UpdateAsync(Genus genus)
 	{
-		_context.Genus.Update(genus);
-		await _context.SaveChangesAsync();
+		if (genus != null && _context.Genus != null)
+		{
+			_context.Genus.Update(genus);
+			await _context.SaveChangesAsync();
+		}
 	}
 
 	public async Task DeleteAsync(int id)
 	{
+		if (_context.Genus == null)
+			return;
+			
 		var genus = await _context.Genus.FindAsync(id);
 		if (genus != null)
 		{

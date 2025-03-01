@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BotGarden.Domain.Models
 {
-    public class BotGardenMode
+    public class BotGardenModel
     {
         [Key]
         public int LocationId { get; set; }

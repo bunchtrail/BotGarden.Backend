@@ -1,6 +1,7 @@
 ﻿using BotGarden.Infrastructure.Contexts;
 using BotGarden.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -20,7 +21,10 @@ namespace BotGarden.Infrastructure.Data.Repositories
 		{
 			try
 			{
-				return await _context.PlantFamilies.ToListAsync();
+				if (_context.PlantFamilies == null)
+					return new List<PlantFamilies>();
+					
+				return await _context.PlantFamilies.ToListAsync() ?? new List<PlantFamilies>();
 			}
 			catch (Exception ex)
 			{
@@ -29,10 +33,13 @@ namespace BotGarden.Infrastructure.Data.Repositories
 			}
 		}
 
-		public async Task<PlantFamilies> GetByIdAsync(int id)
+		public async Task<PlantFamilies?> GetByIdAsync(int id)
 		{
 			try
 			{
+				if (_context.PlantFamilies == null)
+					return null;
+					
 				return await _context.PlantFamilies
 									 .FirstOrDefaultAsync(f => f.FamilyId == id);
 			}
@@ -45,18 +52,27 @@ namespace BotGarden.Infrastructure.Data.Repositories
 
 		public async Task AddAsync(PlantFamilies family)
 		{
-			_context.PlantFamilies.Add(family);
-			await _context.SaveChangesAsync();
+			if (family != null && _context.PlantFamilies != null)
+			{
+				_context.PlantFamilies.Add(family);
+				await _context.SaveChangesAsync();
+			}
 		}
 
 		public async Task UpdateAsync(PlantFamilies family)
 		{
-			_context.PlantFamilies.Update(family);
-			await _context.SaveChangesAsync();
+			if (family != null && _context.PlantFamilies != null)
+			{
+				_context.PlantFamilies.Update(family);
+				await _context.SaveChangesAsync();
+			}
 		}
 
 		public async Task DeleteAsync(int id)
 		{
+			if (_context.PlantFamilies == null)
+				return;
+				
 			var family = await _context.PlantFamilies.FindAsync(id);
 			if (family != null)
 			{

@@ -10,7 +10,6 @@ namespace BotGarden.Infrastructure.Data.Repositories
     {
         protected readonly BotanicGardenContext _context;
         private readonly DbSet<T> _dbSet;
-        private readonly DbSet<T> _entities;
 
         public GenericRepository(BotanicGardenContext context)
         {
@@ -23,13 +22,14 @@ namespace BotGarden.Infrastructure.Data.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
+
         public IQueryable<T> GetAll()
         {
-            return _entities;
+            return _dbSet;
         }
 
         public async Task AddAsync(T entity)
@@ -59,7 +59,5 @@ namespace BotGarden.Infrastructure.Data.Repositories
         {
             return _context.SaveChangesAsync();
         }
-
-
     }
 }

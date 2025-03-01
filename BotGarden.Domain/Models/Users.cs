@@ -6,20 +6,20 @@ namespace BotGardens.Domain.Models
     public class Users
     {
         [Key]
-        public int userId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [EmailAddress]
-        public string userEmail { get; set; }
+        public string UserEmail { get; set; } = null!;
 
         [Required]
-        public string userHashedPass { get; set; }
+        public string UserHashedPass { get; set; } = null!;
 
         [Required]
-        public string userRole { get; set; }
+        public string UserRole { get; set; } = null!;
 
         [Required]
-        public string RefreshTokenHash { get; set; }
+        public string RefreshTokenHash { get; set; } = null!;
 
         public DateTime RefreshTokenExpiryTime { get; set; }
     }

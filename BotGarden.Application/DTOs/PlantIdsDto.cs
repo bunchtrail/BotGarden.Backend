@@ -2,6 +2,6 @@
 {
     public class PlantIdsDto
     {
-        public List<int> PlantIds { get; set; }
+        public required List<int> PlantIds { get; set; }
     }
 }

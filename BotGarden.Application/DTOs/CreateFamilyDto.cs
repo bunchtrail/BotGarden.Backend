@@ -5,6 +5,6 @@ namespace BotGarden.Application.DTOs
     public class CreateFamilyDto
     {
         [Required]
-        public string FamilyName { get; set; }
+        public required string FamilyName { get; set; }
     }
 } 

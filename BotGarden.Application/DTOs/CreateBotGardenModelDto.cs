@@ -1,8 +1,8 @@
 ﻿namespace BotGarden.Application.DTOs
 {
-    public class UpdateAreaRequest
+    public class CreateBotGardenModelDto
     {
-        public int LocationId { get; set; }
+        public required string LocationPath { get; set; }
         public required string Geometry { get; set; }
     }
 }

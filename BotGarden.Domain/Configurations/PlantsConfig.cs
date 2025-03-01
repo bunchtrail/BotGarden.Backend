@@ -31,6 +31,26 @@ public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
                .HasMaxLength(50)
                .IsRequired(false);
 
+        builder.Property(p => p.YearOfObs)
+               .HasMaxLength(50)
+               .IsRequired(false);
+
+        builder.Property(p => p.PhenophaseDate)
+               .HasMaxLength(50)
+               .IsRequired(false);
+
+        builder.Property(p => p.Year)
+               .HasMaxLength(50)
+               .IsRequired(false);
+
+        builder.Property(p => p.MeasurementType)
+               .HasMaxLength(50)
+               .IsRequired(false);
+
+        builder.Property(p => p.Value)
+               .HasMaxLength(50)
+               .IsRequired(false);
+
         builder.Property(p => p.DateOfPlanting)
                .HasMaxLength(50)
                .IsRequired(false);
@@ -85,7 +105,7 @@ public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
 
         builder.Property(p => p.HerbariumPresence)
                .IsRequired()
-               .IsRequired(true);
+               .HasDefaultValue(false);
 
         builder.Property(p => p.Note)
                .HasColumnType("text")
@@ -95,13 +115,26 @@ public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
 
         builder.HasOne(p => p.Family)
                .WithMany(f => f.Plants)
-               .HasForeignKey(p => p.FamilyId);
+               .HasForeignKey(p => p.FamilyId)
+               .IsRequired(false)
+               .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(p => p.Sector)
                .WithMany(s => s.Plants)
-               .HasForeignKey(p => p.SectorId);
+               .HasForeignKey(p => p.SectorId)
+               .IsRequired(false)
+               .OnDelete(DeleteBehavior.SetNull);
 
+        builder.HasOne(p => p.Genus)
+               .WithMany(g => g.Plants)
+               .HasForeignKey(p => p.GenusId)
+               .IsRequired(false)
+               .OnDelete(DeleteBehavior.SetNull);
 
-
+        builder.HasOne(p => p.BotGardenModel)
+               .WithMany(b => b.Plants)
+               .HasForeignKey(p => p.BotGardenModelId)
+               .IsRequired(false)
+               .OnDelete(DeleteBehavior.SetNull);
     }
 }

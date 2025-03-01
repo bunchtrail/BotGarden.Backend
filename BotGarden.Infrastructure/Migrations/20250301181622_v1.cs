@@ -5,10 +5,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace BotGardens.Infrastructure.Migrations
+namespace BotGarden.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -99,17 +99,17 @@ namespace BotGardens.Infrastructure.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    userId = table.Column<int>(type: "integer", nullable: false)
+                    UserId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    userEmail = table.Column<string>(type: "text", nullable: false),
-                    userHashedPass = table.Column<string>(type: "text", nullable: false),
-                    userRole = table.Column<string>(type: "text", nullable: false),
+                    UserEmail = table.Column<string>(type: "text", nullable: false),
+                    UserHashedPass = table.Column<string>(type: "text", nullable: false),
+                    UserRole = table.Column<string>(type: "text", nullable: false),
                     RefreshTokenHash = table.Column<string>(type: "text", nullable: false),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.userId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,16 +122,17 @@ namespace BotGardens.Infrastructure.Migrations
                     BiometricId = table.Column<int>(type: "integer", nullable: true),
                     SectorId = table.Column<int>(type: "integer", nullable: true),
                     GenusId = table.Column<int>(type: "integer", nullable: true),
+                    BotGardenModelId = table.Column<int>(type: "integer", nullable: true),
                     InventorNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Species = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Variety = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Form = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Determined = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    YearOfObs = table.Column<string>(type: "text", nullable: true),
-                    PhenophaseDate = table.Column<string>(type: "text", nullable: true),
-                    Year = table.Column<string>(type: "text", nullable: true),
-                    MeasurementType = table.Column<string>(type: "text", nullable: true),
-                    Value = table.Column<string>(type: "text", nullable: true),
+                    YearOfObs = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    PhenophaseDate = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Year = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    MeasurementType = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Value = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     DateOfPlanting = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     ProtectionStatus = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     FilledOut = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
@@ -147,20 +148,20 @@ namespace BotGardens.Infrastructure.Migrations
                     Date = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
                     Country = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
                     ImagePath = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
-                    HerbariumPresence = table.Column<bool>(type: "boolean", nullable: false),
+                    HerbariumPresence = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     Note = table.Column<string>(type: "text", nullable: true),
                     RowVersion = table.Column<byte[]>(type: "bytea", rowVersion: true, nullable: true),
-                    BotGardenModeLocationId = table.Column<int>(type: "integer", nullable: true),
                     CollectionsCollectionId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Plants", x => x.PlantId);
                     table.ForeignKey(
-                        name: "FK_Plants_BotGarden_BotGardenModeLocationId",
-                        column: x => x.BotGardenModeLocationId,
+                        name: "FK_Plants_BotGarden_BotGardenModelId",
+                        column: x => x.BotGardenModelId,
                         principalTable: "BotGarden",
-                        principalColumn: "LocationId");
+                        principalColumn: "LocationId",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Plants_Collections_CollectionsCollectionId",
                         column: x => x.CollectionsCollectionId,
@@ -170,23 +171,26 @@ namespace BotGardens.Infrastructure.Migrations
                         name: "FK_Plants_Genus_GenusId",
                         column: x => x.GenusId,
                         principalTable: "Genus",
-                        principalColumn: "GenusId");
+                        principalColumn: "GenusId",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Plants_PlantFamilies_FamilyId",
                         column: x => x.FamilyId,
                         principalTable: "PlantFamilies",
-                        principalColumn: "FamilyId");
+                        principalColumn: "FamilyId",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Plants_Sectors_SectorId",
                         column: x => x.SectorId,
                         principalTable: "Sectors",
-                        principalColumn: "SectorId");
+                        principalColumn: "SectorId",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Plants_BotGardenModeLocationId",
+                name: "IX_Plants_BotGardenModelId",
                 table: "Plants",
-                column: "BotGardenModeLocationId");
+                column: "BotGardenModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Plants_CollectionsCollectionId",

@@ -16,6 +16,8 @@ namespace BotGarden.Domain.Models
 
         public int? GenusId { get; set; } //
 
+        public int? BotGardenModelId { get; set; } // Внешний ключ для связи с BotGardenModel
+
         public string? InventorNumber { get; set; } //
 
         public string? Species { get; set; } //
@@ -76,5 +78,6 @@ namespace BotGarden.Domain.Models
 
 
         public Genus? Genus { get; set; }
+        public BotGardenModel? BotGardenModel { get; set; }
     }
 }

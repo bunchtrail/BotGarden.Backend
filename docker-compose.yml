@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - botgarden-network
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=botgarden
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ezpass1
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - botgarden-network
+
+networks:
+  botgarden-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

@@ -20,7 +20,7 @@ namespace BotGarden.Applications.Services
 
 
 
-        public async Task<Plants> GetPlantByIdAsync(int id)
+        public async Task<Plants?> GetPlantByIdAsync(int id)
         {
             return await _plantRepository.GetByIdAsync(id);
         }
