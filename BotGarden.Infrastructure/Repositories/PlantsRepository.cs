@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace BotGarden.Infrastructure.Data.Repositories
 {
-    public class PlantsRepository : IRepository<Plants>
+    public class PlantsRepository : IRepository<Plant>
     {
         private readonly BotanicGardenContext _context;
 
@@ -22,16 +22,16 @@ namespace BotGarden.Infrastructure.Data.Repositories
             return _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Plants>> GetAllAsync()
+        public async Task<IEnumerable<Plant>> GetAllAsync()
         {
             try
             {
                 if (_context.Plants == null)
-                    return new List<Plants>();
+                    return new List<Plant>();
                     
                 return await _context.Plants
                                      .Include(p => p.Family)
-                                     .Include(p => p.Sector)
+                                     .Include(p => p.Exposition)
                                      .ToListAsync();
             }
             catch (Exception ex)
@@ -44,24 +44,24 @@ namespace BotGarden.Infrastructure.Data.Repositories
         }
 
 
-        public IQueryable<Plants>? GetAll()
+        public IQueryable<Plant>? GetAll()
         {
             return _context.Plants;
         }
 
 
-        public async Task<Plants?> GetByIdAsync(int id)
+        public async Task<Plant?> GetByIdAsync(int id)
         {
             if (_context.Plants == null)
                 return null;
                 
             return await _context.Plants
                 .Include(p => p.Family)
-                .Include(p => p.Sector)
-                .FirstOrDefaultAsync(p => p.PlantId == id);
+                .Include(p => p.Exposition)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task AddAsync(Plants plant)
+        public async Task AddAsync(Plant plant)
         {
             if (plant != null && _context.Plants != null)
             {
@@ -70,7 +70,7 @@ namespace BotGarden.Infrastructure.Data.Repositories
             }
         }
 
-	    public async Task UpdateAsync(Plants plant)
+	    public async Task UpdateAsync(Plant plant)
 	    {
 	        if (plant != null && _context.Plants != null)
 	        {

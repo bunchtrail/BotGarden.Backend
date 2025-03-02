@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BotGarden.Domain.Models
 {
@@ -12,6 +11,6 @@ namespace BotGarden.Domain.Models
         public string? CollectionName { get; set; }
 
 
-        public ICollection<Plants>? Plants { get; set; }
+        public ICollection<Plant>? Plants { get; set; }
     }
 }

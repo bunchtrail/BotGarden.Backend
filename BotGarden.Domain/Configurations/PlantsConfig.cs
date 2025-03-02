@@ -2,116 +2,81 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BotGarden.Domain.Models;
 
-public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
+public class PlantsConfiguration : IEntityTypeConfiguration<Plant>
 {
-    public void Configure(EntityTypeBuilder<Plants> builder)
+    public void Configure(EntityTypeBuilder<Plant> builder)
     {
         builder.ToTable("Plants");
 
-        builder.HasKey(p => p.PlantId);
+        builder.HasKey(p => p.Id);
 
-        builder.Property(p => p.InventorNumber)
+        builder.Property(p => p.InventoryNumber)
                .HasMaxLength(50)
-               .IsRequired(false);
+               .IsRequired();
 
-
-        builder.Property(p => p.Species)
+        builder.Property(p => p.Rod)
                .HasMaxLength(50)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.Variety)
+        builder.Property(p => p.Vid)
                .HasMaxLength(50)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.Form)
+        builder.Property(p => p.Sort)
                .HasMaxLength(50)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.Determined)
+        builder.Property(p => p.Forma)
                .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.YearOfObs)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.PhenophaseDate)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.Year)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.MeasurementType)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.Value)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.DateOfPlanting)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.ProtectionStatus)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.FilledOut)
-               .HasMaxLength(50)
-               .IsRequired(false);
-
-        builder.Property(p => p.HerbariumDuplicate)
-               .HasMaxLength(50)
-               .IsRequired(false);
+               .IsRequired();
 
         builder.Property(p => p.Synonyms)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.PlantOrigin)
+        builder.Property(p => p.Origin)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.NaturalHabitat)
+        builder.Property(p => p.Areal)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
         builder.Property(p => p.EcologyBiology)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
         builder.Property(p => p.EconomicUse)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
+
+        builder.Property(p => p.DeterminedBy)
+               .HasMaxLength(50)
+               .IsRequired();
+
+        builder.Property(p => p.SecurityStatus)
+               .HasMaxLength(50)
+               .IsRequired();
 
         builder.Property(p => p.Originator)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.Date)
+        builder.Property(p => p.YearCountry)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.Country)
+        builder.Property(p => p.Illustration)
                .HasMaxLength(250)
-               .IsRequired(false);
+               .IsRequired();
 
-        builder.Property(p => p.ImagePath)
-               .HasMaxLength(250)
-               .IsRequired(false);
+        builder.Property(p => p.FilledBy)
+               .HasMaxLength(50)
+               .IsRequired();
 
-        builder.Property(p => p.HerbariumPresence)
-               .IsRequired()
-               .HasDefaultValue(false);
-
-        builder.Property(p => p.Note)
+        builder.Property(p => p.Notes)
                .HasColumnType("text")
-               .IsRequired(false);
-
-       
+               .IsRequired();
 
         builder.HasOne(p => p.Family)
                .WithMany(f => f.Plants)
@@ -119,21 +84,9 @@ public class PlantsConfiguration : IEntityTypeConfiguration<Plants>
                .IsRequired(false)
                .OnDelete(DeleteBehavior.SetNull);
 
-        builder.HasOne(p => p.Sector)
-               .WithMany(s => s.Plants)
-               .HasForeignKey(p => p.SectorId)
-               .IsRequired(false)
-               .OnDelete(DeleteBehavior.SetNull);
-
-        builder.HasOne(p => p.Genus)
-               .WithMany(g => g.Plants)
-               .HasForeignKey(p => p.GenusId)
-               .IsRequired(false)
-               .OnDelete(DeleteBehavior.SetNull);
-
-        builder.HasOne(p => p.BotGardenModel)
-               .WithMany(b => b.Plants)
-               .HasForeignKey(p => p.BotGardenModelId)
+        builder.HasOne(p => p.Exposition)
+               .WithMany(e => e.Plants)
+               .HasForeignKey(p => p.ExpositionId)
                .IsRequired(false)
                .OnDelete(DeleteBehavior.SetNull);
     }

@@ -9,9 +9,9 @@ namespace BotGarden.Applications.Services
 {
     public class PlantService
     {
-        private readonly IRepository<Plants> _plantRepository;
+        private readonly IRepository<Plant> _plantRepository;
 
-        public PlantService(IRepository<Plants> plantRepository)
+        public PlantService(IRepository<Plant> plantRepository)
         {
             _plantRepository = plantRepository;
         }
@@ -20,7 +20,7 @@ namespace BotGarden.Applications.Services
 
 
 
-        public async Task<Plants?> GetPlantByIdAsync(int id)
+        public async Task<Plant?> GetPlantByIdAsync(int id)
         {
             return await _plantRepository.GetByIdAsync(id);
         }

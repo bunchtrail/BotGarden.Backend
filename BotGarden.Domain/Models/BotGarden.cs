@@ -13,6 +13,6 @@ namespace BotGarden.Domain.Models
 
         public Polygon? Geometry { get; set; } 
 
-        public ICollection<Plants>? Plants { get; set; }
+        public ICollection<Plant>? Plants { get; set; }
     }
 }
