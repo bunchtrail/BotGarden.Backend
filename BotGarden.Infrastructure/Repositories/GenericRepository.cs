@@ -47,7 +47,7 @@ namespace BotGarden.Infrastructure.Data.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            T entity = await GetByIdAsync(id);
+            T? entity = await GetByIdAsync(id);
             if (entity != null)
             {
                 _dbSet.Remove(entity);

@@ -18,81 +18,81 @@ namespace BotGarden.Domain.Models
         /// </summary>
         [Required]
         [MaxLength(50)]
-        public string InventoryNumber { get; set; }
+        public required string InventoryNumber { get; set; }
 
         /// <summary>
         /// Род (не более 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string Rod { get; set; }
+        public required string Rod { get; set; }
 
         /// <summary>
         /// Вид (не более 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string Vid { get; set; }
+        public required string Vid { get; set; }
 
         /// <summary>
         /// Сорт (не более 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string Sort { get; set; }
+        public required string Sort { get; set; }
 
         /// <summary>
         /// Форма (не более 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string Forma { get; set; }
+        public required string Forma { get; set; }
 
         /// <summary>
         /// Связь с таблицей семейств (Family).
         /// </summary>
         [ForeignKey("Family")]
         public int? FamilyId { get; set; }
-        public Family Family { get; set; }
+        public required Family Family { get; set; }
 
         /// <summary>
         /// Связь с таблицей экспозиций (Exposition) — местоположение на территории сада.
         /// </summary>
         [ForeignKey("Exposition")]
         public int? ExpositionId { get; set; }
-        public Exposition Exposition { get; set; }
+        public required Exposition Exposition { get; set; }
 
         /// <summary>
         /// Синонимы (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string Synonyms { get; set; }
+        public required string Synonyms { get; set; }
 
         /// <summary>
         /// Происхождение образца (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string Origin { get; set; }
+        public required string Origin { get; set; }
 
         /// <summary>
         /// Природный ареал (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string Areal { get; set; }
+        public required string Areal { get; set; }
 
         /// <summary>
         /// Экология и биология вида (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string EcologyBiology { get; set; }
+        public required string EcologyBiology { get; set; }
 
         /// <summary>
         /// Хозяйственное применение (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string EconomicUse { get; set; }
+        public required string EconomicUse { get; set; }
 
         /// <summary>
         /// Кто определил (определил вид, сорт и т.д.) – до 50 символов.
         /// </summary>
         [MaxLength(50)]
-        public string DeterminedBy { get; set; }
+        public required string DeterminedBy { get; set; }
 
         /// <summary>
         /// Год посадки (числовое поле, необязательно).
@@ -103,7 +103,7 @@ namespace BotGarden.Domain.Models
         /// Охранный статус вида (до 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string SecurityStatus { get; set; }
+        public required string SecurityStatus { get; set; }
 
         /// <summary>
         /// Поле (логическое) «Наличие гербария».
@@ -119,30 +119,30 @@ namespace BotGarden.Domain.Models
         /// Оригинатор (до 250 символов) – если важно для сортов.
         /// </summary>
         [MaxLength(250)]
-        public string Originator { get; set; }
+        public required string Originator { get; set; }
 
         /// <summary>
         /// Дополнительное поле для года, страны (до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string YearCountry { get; set; }
+        public required string YearCountry { get; set; }
 
         /// <summary>
         /// Иллюстрация (ссылка на изображение, до 250 символов).
         /// </summary>
         [MaxLength(250)]
-        public string Illustration { get; set; }
+        public required string Illustration { get; set; }
 
         /// <summary>
         /// Кто заполнял информацию (до 50 символов).
         /// </summary>
         [MaxLength(50)]
-        public string FilledBy { get; set; }
+        public required string FilledBy { get; set; }
 
         /// <summary>
         /// Примечание – текстовое поле.
         /// </summary>
-        public string Notes { get; set; }
+        public required string Notes { get; set; }
 
         /// <summary>
         /// Координаты местоположения растения
@@ -153,8 +153,8 @@ namespace BotGarden.Domain.Models
         /// <summary>
         /// Навигационные свойства на фенологию и биометрию (один Specimen - много записей).
         /// </summary>
-        public ICollection<Phenology> Phenologies { get; set; }
-        public ICollection<Biometry> Biometries { get; set; }
+        public required ICollection<Phenology> Phenologies { get; set; }
+        public required ICollection<Biometry> Biometries { get; set; }
     }
 
     /// <summary>
@@ -167,7 +167,7 @@ namespace BotGarden.Domain.Models
 
         [ForeignKey("Specimen")]
         public int SpecimenId { get; set; }
-        public Specimen Specimen { get; set; }
+        public required Specimen Specimen { get; set; }
 
         /// <summary>
         /// Год наблюдений.
@@ -183,7 +183,7 @@ namespace BotGarden.Domain.Models
         /// <summary>
         /// Дополнительные примечания.
         /// </summary>
-        public string Notes { get; set; }
+        public required string Notes { get; set; }
     }
 
     /// <summary>
@@ -196,7 +196,7 @@ namespace BotGarden.Domain.Models
 
         [ForeignKey("Specimen")]
         public int SpecimenId { get; set; }
-        public Specimen Specimen { get; set; }
+        public required Specimen Specimen { get; set; }
 
         /// <summary>
         /// Дата измерения.
@@ -216,13 +216,13 @@ namespace BotGarden.Domain.Models
         /// <summary>
         /// Другие биометрические показатели.
         /// </summary>
-        public string MeasurementType { get; set; }
+        public required string MeasurementType { get; set; }
         public float? MeasurementValue { get; set; }
 
         /// <summary>
         /// Примечания к измерениям.
         /// </summary>
-        public string Notes { get; set; }
+        public required string Notes { get; set; }
     }
 
     /// <summary>
@@ -238,9 +238,9 @@ namespace BotGarden.Domain.Models
         /// </summary>
         [Required]
         [MaxLength(100)]
-        public string FamilyName { get; set; }
+        public required string FamilyName { get; set; }
 
-        public ICollection<Specimen> Specimens { get; set; }
+        public required ICollection<Specimen> Specimens { get; set; }
     }
 
     /// <summary>
@@ -256,8 +256,8 @@ namespace BotGarden.Domain.Models
         /// </summary>
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
-        public ICollection<Specimen> Specimens { get; set; }
+        public required ICollection<Specimen> Specimens { get; set; }
     }
 } 
