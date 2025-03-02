@@ -11,8 +11,6 @@ namespace BotGarden.Infrastructure.Contexts
         public BotanicGardenContext(DbContextOptions<BotanicGardenContext> options) : base(options) { }
 
         public DbSet<BotGardenModel>? BotGarden { get; set; }
-        public DbSet<Collections>? Collections { get; set; }
-        public DbSet<PlantFamilies>? PlantFamilies { get; set; }
         public DbSet<Plant> Plants { get; set; } = null!;
         public DbSet<Sectors>? Sectors { get; set; }
         public DbSet<Genus>? Genus { get; set; }

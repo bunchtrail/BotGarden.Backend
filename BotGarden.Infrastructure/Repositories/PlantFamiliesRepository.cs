@@ -8,78 +8,87 @@ using System.Threading.Tasks;
 
 namespace BotGarden.Infrastructure.Data.Repositories
 {
-	public class PlantFamiliesRepository : IRepository<PlantFamilies>
+	public class FamilyRepository : IRepository<Family>
 	{
 		private readonly BotanicGardenContext _context;
 
-		public PlantFamiliesRepository(BotanicGardenContext context)
+		public FamilyRepository(BotanicGardenContext context)
 		{
 			_context = context;
 		}
 
-		public async Task<IEnumerable<PlantFamilies>> GetAllAsync()
+		public async Task<IEnumerable<Family>> GetAllAsync()
 		{
 			try
 			{
-				if (_context.PlantFamilies == null)
-					return new List<PlantFamilies>();
+				if (_context.Families == null)
+					return new List<Family>();
 					
-				return await _context.PlantFamilies.ToListAsync() ?? new List<PlantFamilies>();
+				return await _context.Families.ToListAsync() ?? new List<Family>();
 			}
 			catch (Exception ex)
 			{
-				// Log the exception or handle it accordingly
-				throw new Exception("Failed to retrieve plant families", ex);
+				// Логирование ошибки
+				Console.WriteLine($"Ошибка при получении списка семейств: {ex.Message}");
+				return new List<Family>();
 			}
 		}
 
-		public async Task<PlantFamilies?> GetByIdAsync(int id)
+		public async Task<Family?> GetByIdAsync(int id)
 		{
 			try
 			{
-				if (_context.PlantFamilies == null)
+				if (_context.Families == null)
 					return null;
 					
-				return await _context.PlantFamilies
-									 .FirstOrDefaultAsync(f => f.FamilyId == id);
+				return await _context.Families
+					.FirstOrDefaultAsync(f => f.Id == id);
 			}
 			catch (Exception ex)
 			{
-				// Log the exception or handle it accordingly
-				throw new Exception($"Failed to retrieve plant family with ID {id}", ex);
+				// Логирование ошибки
+				Console.WriteLine($"Ошибка при получении семейства по ID: {ex.Message}");
+				return null;
 			}
 		}
 
-		public async Task AddAsync(PlantFamilies family)
+		public async Task AddAsync(Family family)
 		{
-			if (family != null && _context.PlantFamilies != null)
+			if (family != null && _context.Families != null)
 			{
-				_context.PlantFamilies.Add(family);
+				_context.Families.Add(family);
 				await _context.SaveChangesAsync();
 			}
 		}
 
-		public async Task UpdateAsync(PlantFamilies family)
+		public async Task UpdateAsync(Family family)
 		{
-			if (family != null && _context.PlantFamilies != null)
+			if (family != null && _context.Families != null)
 			{
-				_context.PlantFamilies.Update(family);
+				_context.Families.Update(family);
 				await _context.SaveChangesAsync();
 			}
 		}
 
 		public async Task DeleteAsync(int id)
 		{
-			if (_context.PlantFamilies == null)
-				return;
-				
-			var family = await _context.PlantFamilies.FindAsync(id);
-			if (family != null)
+			try
 			{
-				_context.PlantFamilies.Remove(family);
-				await _context.SaveChangesAsync();
+				if (_context.Families == null)
+					return;
+					
+				var family = await _context.Families.FindAsync(id);
+				if (family != null)
+				{
+					_context.Families.Remove(family);
+					await _context.SaveChangesAsync();
+				}
+			}
+			catch (Exception ex)
+			{
+				// Логирование ошибки
+				Console.WriteLine($"Ошибка при удалении семейства: {ex.Message}");
 			}
 		}
 	}
-
 }

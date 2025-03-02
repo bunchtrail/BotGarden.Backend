@@ -7,23 +7,23 @@ using BotGarden.Infrastructure.Contexts;
 
 namespace BotGarden.Application.Services
 {
-    public class PlantFamilyService
+    public class FamilyService
     {
         private readonly BotanicGardenContext _context;
 
-        public PlantFamilyService(BotanicGardenContext context)
+        public FamilyService(BotanicGardenContext context)
         {
             _context = context;
         }
 
-        public async Task<List<PlantFamilies>> GetAllAsync()
+        public async Task<List<Family>> GetAllAsync()
         {
-            return await _context.PlantFamilies.ToListAsync();
+            return await _context.Families.ToListAsync();
         }
 
-        public async Task AddAsync(PlantFamilies plantFamily)
+        public async Task AddAsync(Family family)
         {
-            _context.PlantFamilies.Add(plantFamily);
+            _context.Families.Add(family);
             await _context.SaveChangesAsync();
         }
     }

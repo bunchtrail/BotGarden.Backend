@@ -28,7 +28,7 @@ public class GenusRepository : IRepository<Genus>
 		if (_context.Genus == null)
 			return null;
 			
-		return await _context.Genus.FirstOrDefaultAsync(g => g.GenusId == id);
+		return await _context.Genus.FirstOrDefaultAsync(g => g.Id == id);
 	}
 
 	public async Task AddAsync(Genus genus)

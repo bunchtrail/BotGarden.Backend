@@ -23,7 +23,8 @@ namespace BotGarden.Application.Services.MainFormAdd
         {
             var newGenus = new Genus
             {
-                GenusName = genusName
+                GenusName = genusName,
+                Plants = new List<Plant>()
             };
 
             await _genusRepository.AddAsync(newGenus);

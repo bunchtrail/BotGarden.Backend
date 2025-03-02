@@ -3,29 +3,30 @@ using BotGarden.Domain.Models;
 namespace BotGarden.Application.Services.MainFormAdd
 {
 
-    public class PlantFamilyService
+    public class FamilyService
     {
-        private readonly IRepository<PlantFamilies> _plantFamilyRepository;
+        private readonly IRepository<Family> _familyRepository;
 
-        public PlantFamilyService(IRepository<PlantFamilies> plantFamilyRepository)
+        public FamilyService(IRepository<Family> familyRepository)
         {
-            _plantFamilyRepository = plantFamilyRepository;
+            _familyRepository = familyRepository;
         }
 
-        public async Task<IEnumerable<PlantFamilies>> GetAllPlantFamiliesAsync()
+        public async Task<IEnumerable<Family>> GetAllFamiliesAsync()
         {
-            var families = await _plantFamilyRepository.GetAllAsync();
+            var families = await _familyRepository.GetAllAsync();
             return families ?? [];
         }
 
-        public async Task<PlantFamilies> CreatePlantFamilyAsync(string familyName)
+        public async Task<Family> CreateFamilyAsync(string familyName)
         {
-            var newFamily = new PlantFamilies
+            var newFamily = new Family
             {
-                FamilyName = familyName
+                FamilyName = familyName,
+                Plants = new List<Plant>()
             };
 
-            await _plantFamilyRepository.AddAsync(newFamily);
+            await _familyRepository.AddAsync(newFamily);
             return newFamily;
         }
     }

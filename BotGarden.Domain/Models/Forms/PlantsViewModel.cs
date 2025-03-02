@@ -5,6 +5,6 @@ namespace BotGarden.Domain.Models.Forms
 	public class PlantsViewModel
 	{
 		public IEnumerable<Plant>? Plants { get; set; }
-		public IEnumerable<Collections>? Collections { get; set; }
+		public IEnumerable<Exposition>? Collections { get; set; }
 	}
 }

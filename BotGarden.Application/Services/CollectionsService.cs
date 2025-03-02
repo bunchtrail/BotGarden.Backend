@@ -5,38 +5,38 @@ using System.Threading.Tasks;
 
 namespace BotGarden.Application.Services
 {
-    public class CollectionsService
+    public class ExpositionService
     {
-        private readonly IRepository<Collections> _collectionsRepository;
+        private readonly IRepository<Exposition> _expositionRepository;
 
-        public CollectionsService(IRepository<Collections> collectionsRepository)
+        public ExpositionService(IRepository<Exposition> expositionRepository)
         {
-            _collectionsRepository = collectionsRepository;
+            _expositionRepository = expositionRepository;
         }
 
-        public async Task<IEnumerable<Collections>> GetAllCollectionsAsync()
+        public async Task<IEnumerable<Exposition>> GetAllExpositionsAsync()
         {
-            return await _collectionsRepository.GetAllAsync();
+            return await _expositionRepository.GetAllAsync();
         }
 
-        public async Task<Collections?> GetCollectionByIdAsync(int id)
+        public async Task<Exposition?> GetExpositionByIdAsync(int id)
         {
-            return await _collectionsRepository.GetByIdAsync(id);
+            return await _expositionRepository.GetByIdAsync(id);
         }
 
-        public async Task AddCollectionAsync(Collections collection)
+        public async Task AddExpositionAsync(Exposition exposition)
         {
-            await _collectionsRepository.AddAsync(collection);
+            await _expositionRepository.AddAsync(exposition);
         }
 
-        public async Task UpdateCollectionAsync(Collections collection)
+        public async Task UpdateExpositionAsync(Exposition exposition)
         {
-            await _collectionsRepository.UpdateAsync(collection);
+            await _expositionRepository.UpdateAsync(exposition);
         }
 
-        public async Task DeleteCollectionAsync(int id)
+        public async Task DeleteExpositionAsync(int id)
         {
-            await _collectionsRepository.DeleteAsync(id);
+            await _expositionRepository.DeleteAsync(id);
         }
     }
 }
