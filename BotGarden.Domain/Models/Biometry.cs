@@ -34,12 +34,14 @@ namespace BotGarden.Domain.Models
         /// <summary>
         /// Другие биометрические показатели.
         /// </summary>
+        [MaxLength(100)]
         public required string MeasurementType { get; set; }
         public float? MeasurementValue { get; set; }
 
         /// <summary>
         /// Примечания к измерениям.
         /// </summary>
+        [MaxLength(1000)]
         public required string Notes { get; set; }
     }
 } 

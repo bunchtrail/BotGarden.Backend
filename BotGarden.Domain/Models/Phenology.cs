@@ -30,6 +30,7 @@ namespace BotGarden.Domain.Models
         /// <summary>
         /// Дополнительные примечания.
         /// </summary>
+        [MaxLength(1000)]
         public required string Notes { get; set; }
     }
 } 
