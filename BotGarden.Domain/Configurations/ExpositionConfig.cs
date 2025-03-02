@@ -18,7 +18,7 @@ namespace BotGarden.Domain.Configurations
                    
             // Опциональная связь с BotGardenModel
             builder.Property(e => e.LocationId)
-                   .IsRequired(false);
+                   .IsRequired(true);
         }
     }
 } 

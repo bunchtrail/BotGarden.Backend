@@ -61,6 +61,30 @@ namespace BotGarden.Domain.Models
         public Family? Family { get; set; }
 
         /// <summary>
+        /// Связь с пользователем, создавшим запись
+        /// </summary>
+        [ForeignKey("CreatedBy")]
+        public int? CreatedByUserId { get; set; }
+        public User? CreatedBy { get; set; }
+
+        /// <summary>
+        /// Связь с пользователем, последним изменившим запись
+        /// </summary>
+        [ForeignKey("ModifiedBy")]
+        public int? ModifiedByUserId { get; set; }
+        public User? ModifiedBy { get; set; }
+
+        /// <summary>
+        /// Дата создания записи
+        /// </summary>
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        /// <summary>
+        /// Дата последнего изменения записи
+        /// </summary>
+        public DateTime? LastModifiedAt { get; set; }
+
+        /// <summary>
         /// Связь с таблицей экспозиций (Exposition) — местоположение на территории сада.
         /// </summary>
         [ForeignKey("Exposition")]
