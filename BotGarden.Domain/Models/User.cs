@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BotGardens.Domain.Models
+namespace BotGarden.Domain.Models
 {
-    public class Users
+    public class User
     {
         [Key]
         public int UserId { get; set; }

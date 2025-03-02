@@ -19,5 +19,13 @@ namespace BotGarden.Domain.Models
         public required string FamilyName { get; set; }
 
         public required ICollection<Plant> Plants { get; set; }
+
+        /// <summary>
+        /// Конструктор для инициализации коллекции
+        /// </summary>
+        public Family()
+        {
+            Plants = new List<Plant>();
+        }
     }
 } 

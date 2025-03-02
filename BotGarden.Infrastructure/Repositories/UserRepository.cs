@@ -1,15 +1,15 @@
-﻿using BotGarden.Infrastructure.Contexts;
+﻿using BotGarden.Domain.Models;
+using BotGarden.Infrastructure.Contexts;
 using BotGarden.Infrastructure.Data.Repositories;
-using BotGardens.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BotGardens.Infrastructure.Repositories
 {
-    public class UsersRepository : GenericRepository<Users>
+    public class UsersRepository : GenericRepository<User>
     {
         public UsersRepository(BotanicGardenContext context) : base(context) { }
 
-        public async Task<Users?> GetUserByEmailAsync(string email)
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
             return await _context.Users.SingleOrDefaultAsync(u => u.UserEmail == email);
         }

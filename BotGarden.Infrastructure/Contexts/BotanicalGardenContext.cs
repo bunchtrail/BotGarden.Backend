@@ -1,5 +1,4 @@
 ﻿using BotGarden.Domain.Models;
-using BotGardens.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
 using BotGarden.Domain.Configurations;
@@ -14,8 +13,8 @@ namespace BotGarden.Infrastructure.Contexts
         public DbSet<Plant> Plants { get; set; } = null!;
         public DbSet<Sectors>? Sectors { get; set; }
         public DbSet<Genus>? Genus { get; set; }
-        public DbSet<Users> Users { get; set; } = null!;
-        public DbSet<Map> Map { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Map> Maps { get; set; } = null!;
 
         public DbSet<Family> Families { get; set; } = null!;
         public DbSet<Exposition> Expositions { get; set; } = null!;
@@ -32,6 +31,8 @@ namespace BotGarden.Infrastructure.Contexts
             modelBuilder.ApplyConfiguration(new BiometryConfiguration());
             modelBuilder.ApplyConfiguration(new FamilyConfiguration());
             modelBuilder.ApplyConfiguration(new ExpositionConfiguration());
+            modelBuilder.ApplyConfiguration(new MapConfiguration());
+            modelBuilder.ApplyConfiguration(new GenusConfiguration());
             
             // Настройка для BotGardenModel
             modelBuilder.Entity<BotGardenModel>()

@@ -33,8 +33,9 @@ namespace BotGarden.Application.DTOs
         /// <summary>
         /// Тип дополнительного измерения
         /// </summary>
-        [MaxLength(100)]
-        public string? MeasurementType { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public required string MeasurementType { get; set; }
 
         /// <summary>
         /// Значение дополнительного измерения
@@ -44,7 +45,7 @@ namespace BotGarden.Application.DTOs
         /// <summary>
         /// Примечания к измерениям
         /// </summary>
-        [MaxLength(1000)]
-        public string? Notes { get; set; }
+        [Required]
+        public required string Notes { get; set; }
     }
 } 

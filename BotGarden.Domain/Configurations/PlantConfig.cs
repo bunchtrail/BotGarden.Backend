@@ -25,60 +25,46 @@ namespace BotGarden.Domain.Configurations
                    .IsRequired();
 
             builder.Property(p => p.Sort)
-                   .HasMaxLength(50)
-                   .IsRequired();
+                   .HasMaxLength(50);
 
             builder.Property(p => p.Forma)
-                   .HasMaxLength(50)
-                   .IsRequired();
+                   .HasMaxLength(50);
 
             builder.Property(p => p.Synonyms)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.Origin)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.Areal)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.EcologyBiology)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.EconomicUse)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.DeterminedBy)
-                   .HasMaxLength(50)
-                   .IsRequired();
+                   .HasMaxLength(50);
 
             builder.Property(p => p.SecurityStatus)
-                   .HasMaxLength(50)
-                   .IsRequired();
+                   .HasMaxLength(50);
 
             builder.Property(p => p.Originator)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.YearCountry)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.Illustration)
-                   .HasMaxLength(250)
-                   .IsRequired();
+                   .HasMaxLength(250);
 
             builder.Property(p => p.FilledBy)
-                   .HasMaxLength(50)
-                   .IsRequired();
+                   .HasMaxLength(50);
 
             builder.Property(p => p.Notes)
-                   .HasColumnType("text")
-                   .IsRequired();
+                   .HasColumnType("text");
 
             builder.HasOne(p => p.Family)
                    .WithMany(f => f.Plants)
@@ -89,6 +75,12 @@ namespace BotGarden.Domain.Configurations
             builder.HasOne(p => p.Exposition)
                    .WithMany(e => e.Plants)
                    .HasForeignKey(p => p.ExpositionId)
+                   .IsRequired(false)
+                   .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasOne(p => p.Genus)
+                   .WithMany(g => g.Plants)
+                   .HasForeignKey(p => p.GenusId)
                    .IsRequired(false)
                    .OnDelete(DeleteBehavior.SetNull);
         }

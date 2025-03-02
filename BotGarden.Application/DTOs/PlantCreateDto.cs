@@ -6,72 +6,70 @@ namespace BotGarden.Application.DTOs
     public class PlantCreateDto
     {
         public int? FamilyId { get; set; }
-        public int? SectorId { get; set; }
+        public int? ExpositionId { get; set; }
         public int? GenusId { get; set; }
         
-        [MaxLength(100)]
-        public string? InventorNumber { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string? InventoryNumber { get; set; }
         
-        [MaxLength(100)]
-        public string? Species { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string? Rod { get; set; }
         
-        [MaxLength(100)]
-        public string? Variety { get; set; }
-        
-        [MaxLength(100)]
-        public string? Form { get; set; }
-        
-        [MaxLength(100)]
-        public string? Determined { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string? Vid { get; set; }
         
         [MaxLength(50)]
-        public string? DateOfPlanting { get; set; }
+        public string? Sort { get; set; }
         
-        [MaxLength(100)]
-        public string? ProtectionStatus { get; set; }
+        [MaxLength(50)]
+        public string? Forma { get; set; }
         
-        [MaxLength(100)]
-        public string? FilledOut { get; set; }
+        [MaxLength(50)]
+        public string? DeterminedBy { get; set; }
         
-        [MaxLength(100)]
-        public string? HerbariumDuplicate { get; set; }
+        public int? YearOfPlanting { get; set; }
         
-        [MaxLength(500)]
+        [MaxLength(50)]
+        public string? SecurityStatus { get; set; }
+        
+        [MaxLength(50)]
+        public string? FilledBy { get; set; }
+        
+        public bool? HasHerbarium { get; set; }
+        
+        public bool? HasDuplicates { get; set; }
+        
+        [MaxLength(250)]
         public string? Synonyms { get; set; }
         
-        [MaxLength(500)]
-        public string? PlantOrigin { get; set; }
+        [MaxLength(250)]
+        public string? Origin { get; set; }
         
-        [MaxLength(500)]
-        public string? NaturalHabitat { get; set; }
+        [MaxLength(250)]
+        public string? Areal { get; set; }
         
-        [MaxLength(1000)]
+        [MaxLength(250)]
         public string? EcologyBiology { get; set; }
         
-        [MaxLength(1000)]
+        [MaxLength(250)]
         public string? EconomicUse { get; set; }
         
-        [MaxLength(50)]
-        public string? Latitude { get; set; }
+        public double? Latitude { get; set; }
         
-        [MaxLength(50)]
-        public string? Longitude { get; set; }
+        public double? Longitude { get; set; }
         
-        [MaxLength(100)]
+        [MaxLength(250)]
         public string? Originator { get; set; }
         
-        [MaxLength(50)]
-        public string? Date { get; set; }
+        [MaxLength(250)]
+        public string? YearCountry { get; set; }
         
-        [MaxLength(100)]
-        public string? Country { get; set; }
+        [MaxLength(250)]
+        public string? Illustration { get; set; }
         
-        [MaxLength(500)]
-        public string? ImagePath { get; set; }
-        
-        public bool HerbariumPresence { get; set; }
-        
-        [MaxLength(1000)]
-        public string? Note { get; set; }
+        public string? Notes { get; set; }
     }
 }

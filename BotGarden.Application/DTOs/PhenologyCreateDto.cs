@@ -43,7 +43,7 @@ namespace BotGarden.Application.DTOs
         /// <summary>
         /// Дополнительные примечания
         /// </summary>
-        [MaxLength(1000)]
-        public string? Notes { get; set; }
+        [Required]
+        public required string Notes { get; set; }
     }
 } 
