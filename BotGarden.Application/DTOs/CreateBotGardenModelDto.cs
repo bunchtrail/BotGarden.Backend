@@ -13,5 +13,20 @@ namespace BotGarden.Application.DTOs
         /// </summary>
         [Required]
         public required string Geometry { get; set; }
+        
+        /// <summary>
+        /// Название экспозиции или участка
+        /// </summary>
+        public string? Name { get; set; }
+        
+        /// <summary>
+        /// Описание экспозиции или участка
+        /// </summary>
+        public string? Description { get; set; }
+        
+        /// <summary>
+        /// URL к изображению участка
+        /// </summary>
+        public string? ImageUrl { get; set; }
     }
 }

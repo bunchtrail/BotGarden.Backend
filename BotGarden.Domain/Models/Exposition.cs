@@ -17,6 +17,28 @@ namespace BotGarden.Domain.Models
         public required string ExpositionName { get; set; }
 
         /// <summary>
+        /// Название экспозиции для использования в методах сервиса
+        /// </summary>
+        [NotMapped]
+        public string? Name 
+        { 
+            get => ExpositionName; 
+            set { if (value != null) ExpositionName = value; } 
+        }
+
+        /// <summary>
+        /// Описание экспозиции
+        /// </summary>
+        [MaxLength(1000)]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// URL изображения экспозиции
+        /// </summary>
+        [MaxLength(255)]
+        public string? ImageUrl { get; set; }
+
+        /// <summary>
         /// Связь с BotGardenModel для хранения геометрии участка
         /// </summary>
         [ForeignKey("Location")]
