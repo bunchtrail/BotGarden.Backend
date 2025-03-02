@@ -6,7 +6,6 @@ namespace BotGarden.Application.DTOs
     public class PlantCreateDto
     {
         public int? FamilyId { get; set; }
-        public int? BiometricId { get; set; }
         public int? SectorId { get; set; }
         public int? GenusId { get; set; }
         
@@ -24,21 +23,6 @@ namespace BotGarden.Application.DTOs
         
         [MaxLength(100)]
         public string? Determined { get; set; }
-        
-        [MaxLength(50)]
-        public string? YearOfObs { get; set; }
-        
-        [MaxLength(50)]
-        public string? PhenophaseDate { get; set; }
-        
-        [MaxLength(50)]
-        public string? Year { get; set; }
-        
-        [MaxLength(100)]
-        public string? MeasurementType { get; set; }
-        
-        [MaxLength(100)]
-        public string? Value { get; set; }
         
         [MaxLength(50)]
         public string? DateOfPlanting { get; set; }

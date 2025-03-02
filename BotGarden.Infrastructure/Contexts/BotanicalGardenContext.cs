@@ -38,6 +38,12 @@ namespace BotGarden.Infrastructure.Contexts
                 .Property(b => b.Geometry)
                 .HasColumnType("geometry");
 
+            // Настройка связи между BotGardenModel и Exposition (один-к-одному)
+            modelBuilder.Entity<BotGardenModel>()
+                .HasOne(b => b.Exposition)
+                .WithOne(e => e.Location)
+                .HasForeignKey<Exposition>(e => e.LocationId);
+
             // Настройка уникальности инвентарного номера для Plant
             modelBuilder.Entity<Plant>()
                 .HasIndex(p => p.InventoryNumber)

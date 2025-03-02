@@ -22,7 +22,6 @@ namespace BotGarden.Infrastructure.Data.Repositories
                 return new List<BotGardenModel>();
                 
             return await _context.BotGarden
-                                 .Include(bg => bg.Plants)
                                  .ToListAsync();
         }
 

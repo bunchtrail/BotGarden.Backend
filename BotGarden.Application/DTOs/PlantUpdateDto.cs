@@ -4,7 +4,6 @@
     {
         public int PlantId { get; set; }
         public int? FamilyId { get; set; }
-        public int? BiometricId { get; set; }
         public int? SectorId { get; set; }
         public int? GenusId { get; set; }
         public string? InventorNumber { get; set; }
@@ -12,11 +11,6 @@
         public string? Variety { get; set; }
         public string? Form { get; set; }
         public string? Determined { get; set; }
-        public string? YearOfObs { get; set; }
-        public string? PhenophaseDate { get; set; }
-        public string? Year { get; set; }
-        public string? MeasurementType { get; set; }
-        public string? Value { get; set; }
         public string? DateOfPlanting { get; set; }
         public string? ProtectionStatus { get; set; }
         public string? FilledOut { get; set; }

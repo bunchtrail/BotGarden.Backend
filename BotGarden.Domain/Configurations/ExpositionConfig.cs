@@ -15,6 +15,10 @@ namespace BotGarden.Domain.Configurations
             builder.Property(e => e.ExpositionName)
                    .HasMaxLength(100)
                    .IsRequired();
+                   
+            // Опциональная связь с BotGardenModel
+            builder.Property(e => e.LocationId)
+                   .IsRequired(false);
         }
     }
 } 
